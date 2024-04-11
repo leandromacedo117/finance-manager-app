@@ -1,0 +1,12 @@
+$margin-size: 20px;
+
+@mixin input-size {
+  width: 30vw;
+  height: 5vh;
+}
+
+*{
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+}

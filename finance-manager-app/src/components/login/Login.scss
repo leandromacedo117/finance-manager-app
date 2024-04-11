@@ -1,0 +1,59 @@
+@import '../../index.scss';
+
+@mixin parameters-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-direction: column;
+    margin-bottom: $margin-size - 8px;
+}
+
+.container-login {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+}
+
+.container-img {
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+}
+
+.form-login {
+    background-color: #f8f2f2;
+    height: 100vh;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-login form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-login {
+    @include parameters-inputs();
+    align-items: center;
+}
+
+.input-login h3 {
+    font-size: 1.75rem;
+}
+
+.input-login input {
+    @include input-size();
+}
+
+.button-create {
+    border: none;
+    color: #0023be;
+    margin-top: 1rem;
+    cursor: pointer;
+}

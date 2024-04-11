@@ -1,0 +1,9 @@
+.Button-components {
+    background-color: #3d00e4;
+    border: none;
+    padding: 0.5rem 6rem;
+    font-weight: 800;
+    color: #fff;
+    cursor: pointer;
+    /* width: 80%; */
+}
