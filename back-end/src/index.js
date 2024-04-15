@@ -1,14 +1,15 @@
 import express from 'express';
 import router from './router/routes';
 import { json } from 'express';
+import  cors  from 'cors'
 
 const app = express();
 
+app.use(cors())
 app.use(json())
-// app.use(cors())
 
 app.get('/test', router)
-app.get('/json', router)
+app.post('/json', router)
 app.get('/', function (req, res) {
   res.send('Hello World!');
 });
