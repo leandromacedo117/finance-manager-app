@@ -1,9 +1,13 @@
-import  mysql from 'mysql'
+import mysql from 'mysql';
 
-export const  tableLogin = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'suasenha',
-    database:'financedb',
+export const tableLogin = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'financeDb',
     dialect:'mysql'
 });
+
+
+
+
