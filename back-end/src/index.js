@@ -10,6 +10,7 @@ app.use(json())
 
 app.get('/test', router)
 app.post('/json', router)
+app.post('/login', router)
 app.get('/', function (req, res) {
   res.send('Hello World!');
 });
