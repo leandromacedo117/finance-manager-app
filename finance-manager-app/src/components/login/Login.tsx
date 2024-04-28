@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../button/Button'
+import { Link } from 'react-router-dom'
 import './Login.scss'
 import axios from 'axios';
 
@@ -12,17 +13,12 @@ type LoginUser = {
 
 const Login = () => {
   // database dados
-  const [ data, setData] = React.useState<LoginUser>({
-    id: null,
-    name: '',
-    email: '',
-    password:''
-  });
+  const [ authentication, setAuthentication] = React.useState(false);
 
   // formulario 
   const [formData, setFormData] = React.useState<LoginUser>({
     email: '',
-    password: '',
+    password: ''
 });
 
 
@@ -32,15 +28,25 @@ const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         ...prevData,
         [name]: value,
     }));
-    console.log(formData)
+    console.log(formData.email)
 };
 
-const getData: React.DOMAttributes<HTMLFormElement> =  async (event) => {
-  event.preventDefault()
-  axios.post('http://localhost:4500/login', formData)
-  .then((res) => console.log(res.data))
-  .catch((err) => console.log(`err n: ${err}`))
-}
+  const getData: React.FormEventHandler<HTMLFormElement>  = async (event) => {
+    event.preventDefault()
+    try {
+      const res = await axios.post('http://localhost:4500/login', formData);
+      const userData = res.data[0];
+      if (userData.email === formData.email && userData.user_password == formData.password ) {
+        setAuthentication(true);
+      } else {
+        console.log('user não encontra');
+      }
+    } catch (err) {
+      console.log(`Erro: ${err}`);
+    }
+  };
+
+
 
 
   return (
@@ -58,7 +64,11 @@ const getData: React.DOMAttributes<HTMLFormElement> =  async (event) => {
             onChange={handleChange}
             placeholder='Password' />
         </div>
-        <Button nameProps='Login'/> 
+        {authentication ?
+        (<Link to='/'>
+          <Button nameProps='Login'/> 
+        </Link>) 
+        : <Button nameProps='Login'/> }
     </form>
 
   )
