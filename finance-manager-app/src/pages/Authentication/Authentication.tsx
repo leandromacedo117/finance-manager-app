@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import MoneyImage from '../../images/money.png'
-import './Authentication.css'
 import Login from '../../components/login/Login';
 import Register from '../../components/register/Register';
 
