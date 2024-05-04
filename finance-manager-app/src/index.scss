@@ -5,8 +5,15 @@ $margin-size: 20px;
   height: 5vh;
 }
 
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
+
 *{
   padding: 0;
   margin:0;
   box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
 }
